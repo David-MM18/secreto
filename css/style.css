@@ -48,9 +48,12 @@ body::after{
 .container .card{
     position: relative;
     width: 280px;
-    height: 700px;
+    height: 420px;
     margin: 30px;
-    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 5px 5px 5px rgba(203, 73, 255, 0.418),
+                inset -5px -5px 5px rgba(97, 40, 255, 0.5),
+                5px 5px 5px rgba(193, 67, 224, 0.295),
+                -5px -5px 5px rgba(96, 39, 253, 0.404);
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.1);
     overflow: hidden;
@@ -106,4 +109,7 @@ body::after{
     text-decoration: none;
     font-weight: 500;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar {
+    display: none;
 }
