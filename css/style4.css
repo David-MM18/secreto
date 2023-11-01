@@ -48,7 +48,7 @@ body::after{
 .container .card{
     position: relative;
     width: 350px;
-    height: 1800px;
+    height: 1900px;
     margin: 30px;
     box-shadow: inset 5px 5px 5px rgba(203, 73, 255, 0.418),
                 inset -5px -5px 5px rgba(97, 40, 255, 0.5),
