@@ -48,12 +48,12 @@ body::after{
 .container .card{
     position: relative;
     width: 350px;
-    height: 300px;
+    height: 750px;
     margin: 30px;
-    box-shadow: inset 5px 5px 5px rgba(243, 190, 76, 0.418),
-                inset -5px -5px 5px rgba(255, 187, 40, 0.5),
-                5px 5px 5px rgba(224, 182, 67, 0.295),
-                -5px -5px 5px rgba(253, 199, 39, 0.404);
+    box-shadow: inset 5px 5px 5px rgba(203, 73, 255, 0.418),
+                inset -5px -5px 5px rgba(97, 40, 255, 0.5),
+                5px 5px 5px rgba(193, 67, 224, 0.295),
+                -5px -5px 5px rgba(96, 39, 253, 0.404);
     border-radius: 15px;
     background: rgba(34, 33, 33, 0.363);
     overflow: hidden;
@@ -144,6 +144,16 @@ body::after{
     100%{
         transform: translateY(-10vh) scale(1);
     }
+}
+.container .card:nth-child(1) .content .active{
+    background: #ffffff;
+}
+.container .card:nth-child(1) .content .inactive {
+    background: #4e4c4c;
+    color: #312828;
+}
+.container .card:nth-child(1) .content .Regre {
+    background: #a37945;
 }
 ::-webkit-scrollbar {
     display: none;
