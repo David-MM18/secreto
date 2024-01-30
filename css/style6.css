@@ -16,7 +16,7 @@ body
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background:linear-gradient(100deg,#d35b5b, #d5b59c);
+    background:linear-gradient(300deg,#e45353,#d1e453 , #ee8946);
     background-attachment: fixed;
     
 }
@@ -34,9 +34,9 @@ body
 {
 
     position: relative;
-    width: 400px;
-    height: 600px;
-    background:linear-gradient(100deg,#aa81eb, #ef99e8);
+    width: 350px;
+    height: 970px;
+    background:linear-gradient(100deg,#eb9d81, #e87171);
     margin: 30px;
     border-radius: 20px;
     overflow: hidden;
@@ -84,12 +84,6 @@ body
     padding: 10px;
     text-align: center;
 }
-
-.container .card .content h3{
-    font-size: 1.8em;
-    color: #000000;
-    z-index: 1;
-}
 .container .card .container p
 {
     color: #666;
@@ -132,10 +126,10 @@ body
 }
 .bubbles span:nth-child(even)
 {
-    background: #8e62f5;
-    box-shadow: 0 0 0 10px #cf46c4,
-                0 0 50px #a762f5,
-                0 0 100px #9f62f5;
+    background: #F5A262;
+    box-shadow: 0 0 0 10px #756F6A,
+                0 0 50px #F5A262,
+                0 0 100px #F5A262;
 }
 @keyframes animate
 {

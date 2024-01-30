@@ -11,7 +11,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background:linear-gradient(75deg,#000000, #d5b59c);;   
+    background:linear-gradient(100deg,#d35b5b, #d5b59c); 
 }
 
 body::before{
