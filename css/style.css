@@ -148,3 +148,24 @@ body::after{
 ::-webkit-scrollbar {
     display: none;
 }
+.container .card:nth-child(2) .content .verano{
+    background: linear-gradient(100deg, #89F5AA,#8A91F6);
+}
+.container .card:nth-child(2) .content .amor {
+    background: linear-gradient(100deg, #e2d2d4,#F55E6D);
+    color: #312828;
+}
+.container .card:nth-child(2) .content .Frio {
+    background: linear-gradient(100deg, #272842,#30a7c2);
+    color: #ebe5e5;
+}
+.container .card:nth-child(3) .content .Frio {
+    background: linear-gradient(140deg, #8ce3f6, #272842);
+    color: #ffffff;
+}
+.container .card:nth-child(3) .content .Nostalgia {
+    background: linear-gradient(140deg, #84F54E, #F5E597);
+}
+::-webkit-scrollbar {
+    display: none;
+}
