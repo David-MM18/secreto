@@ -1,109 +1,114 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 
-*
-{
-
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    
 }
-body
-{
-
+body{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background:linear-gradient(300deg,#53c7e4,#ffffff , #4657ee);
-    background-attachment: fixed;
-    
+    background:linear-gradient(75deg,#595EE3, #E3599E); 
 }
-.container
-{
+
+body::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#f00,#f0f);
+    clip-path: circle(18% at right 70%);
+}
+body::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#3814E3,#FFFFFF);
+    clip-path: circle(10% at 10% 30%);
+}
+
+.container{
     position: relative;
-    width: 1150px;
-    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 1200px;
     flex-wrap: wrap;
+    z-index: 1;
 }
-.container .card
-{
 
+.container .card{
     position: relative;
     width: 350px;
-    height: 1010px;
-    background:linear-gradient(100deg,#2d75a5, #ffffff);
+    height: 1000px;
     margin: 30px;
-    border-radius: 20px;
+    box-shadow: inset 5px 5px 5px rgba(104, 169, 223, 0.418),
+                inset -5px -5px 5px rgba(64, 184, 240, 0.5),
+                5px 5px 5px rgba(233, 156, 248, 0.295),
+                -5px -5px 5px rgba(222, 101, 252, 0.404);
+    border-radius: 15px;
+    background: rgba(34, 33, 33, 0.363);
     overflow: hidden;
-    box-shadow: inset 5px 5px 5px rgba(232, 195, 158, 0.418),
-                inset -5px -5px 5px rgba(238, 221, 204, 0.5),
-                5px 5px 5px rgba(232, 195, 158, 0.295),
-                -5px -5px 5px rgba(238, 221, 204, 0.404);
-   
-    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+}
 
+.container .card .content{
+    padding: 20px;
+    text-align: center;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 0.5s;
 }
-.container:hover .card
-{
-    filter: blur(10px);
-    transform: scale(0.4);
-    
-}
-.container .card:hover
-{
-    filter: blur(0px);
-    transform: scale(1);
+
+.container .card:hover .content{
+    transform: translateY(0px);
     opacity: 1;
 }
-.container .card .circle
-{
 
-    position: relative;
-    width: 100%;
-    height: 50%;
-    background: #000;
-    clip-path: circle(180px at center 0);
-    text-align: center;
-
-}
-.container .card .circle h2
-{
-    color: #fff;
-    font-size: 4.5em;
-    padding: 30px 0;
-}
-.container .card .content
-{
+.container .card .content h2{
     position: absolute;
-    bottom: 10px;
-    padding: 10px;
-    text-align: center;
+    top: -60px;
+    right: 30px;
+    font-size: 8em;
+    color: rgba(255, 255, 255, 0.425);
+    pointer-events: none;
 }
-.container .card .container p
-{
-    color: #666;
+.container .card .content h3{
+    font-size: 1.8em;
+    color: #fff;
+    z-index: 1;
 }
-.container .card .content a
-{
+.container .card .content p{
+    font-size: 1em;
+    color: #fff;
+    font-weight: 300;
+
+}
+
+.container .card .content a {
     position: relative;
     display: inline-block;
-    padding: 10px 20px;
-    background: #000;
-    color: #fff;
-    border-radius: 40px;
+    padding: 8px 20px;
+    margin-top: 15px;
+    background: #fff;
+    color: #000;
+    border-radius: 20px;
     text-decoration: none;
-    margin-top: 20px;
-}
-
-.container .card:nth-child(1) .circle,
-.container .card:nth-child(1) .content a
-{
-    background: #040404;
+    font-weight: 500;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 .bubbles
 {
@@ -115,21 +120,21 @@ body
     position: relative;
     width: 30px;
     height: 30px;
-    background: #759BA0;
+    background: #DB59E3;
     margin: 0 10px;
     border-radius: 50%;
-    box-shadow: 0 0 0 10px #f9f9f9,
-                0 0 50px #0e4d56,
-                0 0 100px #1919c9;
+    box-shadow: 0 0 0 10px #8c3a91,
+                0 0 50px #DB59E3,
+                0 0 100px #DB59E3;
     animation: animate 10s linear infinite;
     animation-duration: calc(185s / var(--i));
 }
 .bubbles span:nth-child(even)
 {
-    background: #fafafa;
-    box-shadow: 0 0 0 10px #343e52,
-                0 0 50px #6267f5,
-                0 0 100px #6267f5;
+    background: #E37359;
+    box-shadow: 0 0 0 10px #E359A4,
+                0 0 50px #E37359,
+                0 0 100px #E37359;
 }
 @keyframes animate
 {
@@ -140,6 +145,7 @@ body
         transform: translateY(-10vh) scale(1);
     }
 }
+
 ::-webkit-scrollbar {
     display: none;
 }

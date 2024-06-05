@@ -11,7 +11,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background:linear-gradient(75deg,#000000, #d5b59c);;   
+    background:linear-gradient(75deg,#f305b8da, #c40a0af1);;   
 }
 
 body::before{
@@ -48,12 +48,12 @@ body::after{
 .container .card{
     position: relative;
     width: 350px;
-    height: 750px;
+    height: 800px;
     margin: 30px;
-    box-shadow: inset 5px 5px 5px rgba(203, 73, 255, 0.418),
-                inset -5px -5px 5px rgba(97, 40, 255, 0.5),
-                5px 5px 5px rgba(193, 67, 224, 0.295),
-                -5px -5px 5px rgba(96, 39, 253, 0.404);
+    box-shadow: inset 5px 5px 5px rgba(232, 195, 158, 0.418),
+                inset -5px -5px 5px rgba(238, 221, 204, 0.5),
+                5px 5px 5px rgba(232, 195, 158, 0.295),
+                -5px -5px 5px rgba(238, 221, 204, 0.404);
     border-radius: 15px;
     background: rgba(34, 33, 33, 0.363);
     overflow: hidden;
@@ -120,21 +120,21 @@ body::after{
     position: relative;
     width: 30px;
     height: 30px;
-    background: #4fc3dc;
+    background: #600be7;
     margin: 0 10px;
     border-radius: 50%;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-                0 0 50px #4fc3dc,
-                0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 10px #914fdc44,
+                0 0 50px #600be7,
+                0 0 100px #600be7;
     animation: animate 10s linear infinite;
     animation-duration: calc(185s / var(--i));
 }
 .bubbles span:nth-child(even)
 {
-    background: #ff568f;
-    box-shadow: 0 0 0 10px #ff2d7544,
-                0 0 50px #ff568f,
-                0 0 100px #ff568f;
+    background: #f57862;
+    box-shadow: 0 0 0 10px #5c2e02,
+                0 0 50px #f57862,
+                0 0 100px #f57862;
 }
 @keyframes animate
 {
@@ -145,16 +145,7 @@ body::after{
         transform: translateY(-10vh) scale(1);
     }
 }
-.container .card:nth-child(1) .content .active{
-    background: #ffffff;
-}
-.container .card:nth-child(1) .content .inactive {
-    background: #4e4c4c;
-    color: #312828;
-}
-.container .card:nth-child(1) .content .Regre {
-    background: #a37945;
-}
+
 ::-webkit-scrollbar {
     display: none;
 }
