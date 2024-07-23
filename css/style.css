@@ -175,6 +175,10 @@ body::after{
 .container .card:nth-child(3) .content .Nostalgia {
     background: linear-gradient(140deg, #84F54E, #F5E597);
 }
+.container .card:nth-child(3) .content .Frio {
+    background: linear-gradient(100deg, #272842,#30a7c2);
+    color: #ebe5e5;
+}
 
 /* Tarjeta 5*/
 
