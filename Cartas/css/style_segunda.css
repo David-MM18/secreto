@@ -48,7 +48,7 @@ body::after{
 .container .card{
     position: relative;
     width: 350px;
-    height: 1580px;
+    height: 1550px;
     margin: 30px;
     box-shadow: inset 5px 5px 5px rgba(104, 169, 223, 0.418),
                 inset -5px -5px 5px rgba(64, 184, 240, 0.5),
@@ -92,7 +92,7 @@ body::after{
     z-index: 1;
 }
 .container .card .content p{
-    font-size: 0.7em;
+    font-size: 0.8em;
     color: #fff;
     font-weight: 300;
 
