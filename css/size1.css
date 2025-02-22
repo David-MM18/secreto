@@ -33,7 +33,7 @@
         position: relative;
         width: 350px;
         height: 1500px;
-        margin: 30px;
+        margin: 0px;
         box-shadow: inset 5px 5px 5px rgba(104, 169, 223, 0.418),
                     inset -5px -5px 5px rgba(64, 184, 240, 0.5),
                     5px 5px 5px rgba(233, 156, 248, 0.295),
