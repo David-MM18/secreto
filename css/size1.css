@@ -31,8 +31,8 @@
 @media (max-width:720px){
     .container .card{
         position: relative;
-        width: 450px;
-        height: 1200px;
+        width: 350px;
+        height: 1500px;
         margin: 30px;
         box-shadow: inset 5px 5px 5px rgba(104, 169, 223, 0.418),
                     inset -5px -5px 5px rgba(64, 184, 240, 0.5),
