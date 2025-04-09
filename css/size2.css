@@ -1,7 +1,7 @@
 .container .card{
     position: relative;
     width: 550px;
-    height: 1200px;
+    height: 600px;
     margin: 30px;
     box-shadow: inset 5px 5px 5px rgba(104, 169, 223, 0.418),
                 inset -5px -5px 5px rgba(64, 184, 240, 0.5),
@@ -32,7 +32,7 @@
     .container .card{
         position: relative;
         width: 350px;
-        height: 1500px;
+        height: 800px;
         margin: 0px;
         box-shadow: inset 5px 5px 5px rgba(104, 169, 223, 0.418),
                     inset -5px -5px 5px rgba(64, 184, 240, 0.5),

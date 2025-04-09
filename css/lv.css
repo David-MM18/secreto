@@ -149,3 +149,44 @@ body::after{
 ::-webkit-scrollbar {
     display: none;
 }
+
+@media(max-width:720px){
+    .container .card{
+        position: relative;
+        width: 200px;
+        height: 900px;
+        margin: 30px;
+        box-shadow: inset 5px 5px 5px rgba(104, 169, 223, 0.418),
+                    inset -5px -5px 5px rgba(64, 184, 240, 0.5),
+                    5px 5px 5px rgba(233, 156, 248, 0.295),
+                    -5px -5px 5px rgba(222, 101, 252, 0.404);
+        border-radius: 15px;
+        background: rgba(34, 33, 33, 0.363);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        border-left: 1px solid rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(5px);
+    }
+
+    .container .card .content h2{
+        font-size: 4em;
+    }
+    .container .card .content h3{
+        font-size: 1.4em;
+    }
+    .container .card .content p{
+        font-size: 0.6em;
+    
+    }
+    
+    .container .card .content a {
+        font-size: 10px;
+    }
+    .bubbles
+    {
+        width: 250px;
+    }
+}

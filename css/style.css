@@ -48,7 +48,7 @@ body::after{
 .container .card{
     position: relative;
     width: 350px;
-    height: 350px;
+    height: 450px;
     margin: 30px;
     box-shadow: inset 5px 5px 5px rgba(104, 169, 223, 0.418),
                 inset -5px -5px 5px rgba(64, 184, 240, 0.5),
@@ -209,4 +209,207 @@ body::after{
 }
 ::-webkit-scrollbar {
     display: none;
+}
+@media (max-width:720px){
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background:linear-gradient(75deg,#595EE3, #E3599E); 
+}
+
+body::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#f00,#f0f);
+    clip-path: circle(18% at right 70%);
+}
+body::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#3814E3,#FFFFFF);
+    clip-path: circle(10% at 10% 30%);
+}
+
+.container{
+    position: relative;
+    display: flex;
+    justify-content: 45%;
+    align-items: 45%;
+    max-width: 450px;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+
+.container .card{
+    position: relative;
+    width: 250px;
+    height: 450px;
+    margin: 10px;
+    box-shadow: inset 5px 5px 5px rgba(104, 169, 223, 0.418),
+                inset -5px -5px 5px rgba(64, 184, 240, 0.5),
+                5px 5px 5px rgba(233, 156, 248, 0.295),
+                -5px -5px 5px rgba(222, 101, 252, 0.404);
+    border-radius: 15px;
+    background: rgba(34, 33, 33, 0.363);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.container .card .content{
+    padding: 20px;
+    text-align: center;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.container .card:hover .content{
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.container .card .content h2{
+    position: absolute;
+    top: -60px;
+    right: 30px;
+    font-size: 4em;
+    color: rgba(255, 255, 255, 0.425);
+    pointer-events: none;
+}
+.container .card .content h3{
+    font-size: 1.4em;
+    color: #fff;
+    z-index: 1;
+}
+.container .card .content p{
+    font-size: 0.65em;
+    color: #fff;
+    font-weight: 300;
+
+}
+
+.container .card .content a {
+    font-size: 11px;
+}
+.bubbles
+{
+    position: relative;
+    display: flex;
+}
+.bubbles span
+{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: #4fc3dc;
+    margin: 0 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+                0 0 50px #4fc3dc,
+                0 0 100px #4fc3dc;
+    animation: animate 10s linear infinite;
+    animation-duration: calc(185s / var(--i));
+}
+.bubbles span:nth-child(even)
+{
+    background: #ff568f;
+    box-shadow: 0 0 0 10px #ff2d7544,
+                0 0 50px #ff568f,
+                0 0 100px #ff568f;
+}
+@keyframes animate
+{
+    0%{
+        transform: translateY(100vh) scale(0);
+    }
+    100%{
+        transform: translateY(-10vh) scale(1);
+    }
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Tarjeta 2*/
+.container .card:nth-child(2) .content .verano{
+    background: linear-gradient(100deg, #89F5AA,#8A91F6);
+}
+.container .card:nth-child(2) .content .amor {
+    background: linear-gradient(100deg, #e2d2d4,#F55E6D);
+    color: #312828;
+}
+.container .card:nth-child(2) .content .Frio {
+    background: linear-gradient(100deg, #272842,#30a7c2);
+    color: #ebe5e5;
+}
+
+/* Tarjeta 3*/
+
+
+.container .card:nth-child(3) .content .Romand {
+    background: linear-gradient(140deg, #F54952, #280659);
+    color: #ffffff;
+}
+.container .card:nth-child(3) .content .amor {
+    background: linear-gradient(100deg, #e2d2d4,#F55E6D);
+}
+.container .card:nth-child(3) .content .Nostalgia {
+    background: linear-gradient(140deg, #84F54E, #F5E597);
+}
+.container .card:nth-child(3) .content .Frio {
+    background: linear-gradient(100deg, #272842,#30a7c2);
+    color: #ebe5e5;
+}
+
+/* Tarjeta 5*/
+
+.container .card:nth-child(5) .content .Frio {
+    background: linear-gradient(140deg, #8ce3f6, #272842);
+    color: #ffffff;
+}
+
+/* Tarjeta 6*/
+
+.container .card:nth-child(6) .content .Distancia {
+    background: linear-gradient(140deg, #F47F6B, #FFB32B);
+}
+
+/* Tarjeta 7*/
+.container .card:nth-child(7) .content .Romand {
+    background: linear-gradient(140deg, #F54952, #280659);
+    color: #ffffff;
+}
+.container .card:nth-child(7) .content .amor {
+    background: linear-gradient(100deg, #e2d2d4,#F55E6D);
+    color: #312828;
+}
+
+/* Tarjeta 8*/
+.container .card:nth-child(8) .content .Nostalgia {
+    background: linear-gradient(140deg, #84F54E, #F5E597);
+}
+::-webkit-scrollbar {
+    display: none;
+}
 }
