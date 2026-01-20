@@ -17,6 +17,8 @@ body {
     min-height: -webkit-fill-available;
     background: linear-gradient(75deg, #595EE3, #E3599E);
     overflow-x: hidden;
+    /* ARREGLO MARGEN INFERIOR: Espacio después de la última tarjeta */
+    padding-bottom: 100px; 
 }
 
 /* Fondo Fijo */
@@ -84,10 +86,10 @@ body::after {
     transition: 0.5s ease-in-out;
 }
 
-/* --- HOVER PARA PC Y TOUCH PARA IPHONE --- */
+/* --- ARREGLO HOVER IPHONE: Agregado :active y :focus --- */
 .container .card:hover .content,
 .container .card:active .content,
-.container .card:focus .content {
+.container .card:focus-within .content {
     transform: translateY(0);
     opacity: 1;
 }
@@ -134,6 +136,8 @@ body::after {
 @media (max-width: 480px) {
     .container {
         padding: 10px;
+        /* ARREGLO ESPACIO FINAL: Asegura que el scroll pase la última tarjeta */
+        padding-bottom: 100px;
     }
 
     .container .card {
@@ -142,7 +146,6 @@ body::after {
         margin: 7px;
     }
 
-    /* Reducimos la subida para que no choque en pantallas pequeñas */
     .container .card .content {
         transform: translateY(60px); 
     }
