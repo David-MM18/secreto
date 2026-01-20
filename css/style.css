@@ -148,13 +148,19 @@ p{
 
 @media (max-width: 720px) {
     .container {
-        padding: 10px;
+        display: flex;         /* Activa el modo flexible */
+        flex-wrap: wrap;       /* Permite que las tarjetas bajen a la siguiente fila */
+        justify-content: center; /* Centra las tarjetas en pantalla */
+        padding: 5px;          /* Reduce espacio lateral para ganar área real */
     }
 
     .container .card {
-        width: 280px;
-        height: 400px;
-        margin: 15px;
+        /* LA CLAVE: 50% es la mitad de la pantalla. 
+           Restamos 15px o 20px para dejar espacio a los márgenes entre ellas. */
+        width: calc(50% - 15px); 
+        
+        margin: 8px 5px;       /* Margen pequeño para que no choquen entre sí */
+        height: 340px;         /* Altura ajustada para que no se vean muy largas */
     }
 
     .container .card .content h2 {
@@ -171,7 +177,7 @@ p{
     }
 
     .container .card .content a {
-        font-size: 12px;
+        font-size: 7px;
         padding: 6px 15px;
     }
 }
