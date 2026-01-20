@@ -1,195 +1,161 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-}
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background:linear-gradient(75deg,#595EE3, #E3599E); 
+    /* Permite que el hover se active al primer toque en iOS */
+    -webkit-tap-highlight-color: transparent;
 }
 
-body::before{
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    background: linear-gradient(75deg, #595EE3, #E3599E);
+    overflow-x: hidden;
+}
+
+/* Fondo Fijo */
+body::before, body::after {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(#f00,#f0f);
+    z-index: -1;
+}
+body::before {
+    background: linear-gradient(#f00, #f0f);
     clip-path: circle(18% at right 70%);
 }
-body::after{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(#3814E3,#FFFFFF);
+body::after {
+    background: linear-gradient(#3814E3, #FFFFFF);
     clip-path: circle(10% at 10% 30%);
 }
 
-.container{
+.container {
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
-    max-width: 1200px;
     flex-wrap: wrap;
+    max-width: 1200px;
     z-index: 1;
+    padding: 20px;
+    padding-top: env(safe-area-inset-top, 40px);
 }
 
-.container .card{
+.container .card {
     position: relative;
-    width: 350px;
-    height: 400px;
-    margin: 30px;
-    box-shadow: inset 5px 5px 5px rgba(104, 169, 223, 0.418),
-                inset -5px -5px 5px rgba(64, 184, 240, 0.5),
-                5px 5px 5px rgba(233, 156, 248, 0.295),
-                -5px -5px 5px rgba(222, 101, 252, 0.404);
-    border-radius: 15px;
-    background: rgba(34, 33, 33, 0.363);
+    width: 300px;
+    height: 420px;
+    margin: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     border-top: 1px solid rgba(255, 255, 255, 0.5);
     border-left: 1px solid rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.2);
 }
 
-.container .card .content{
+/* --- ESTADO INICIAL DEL CONTENIDO (Oculto) --- */
+.container .card .content {
     padding: 20px;
     text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    /* Animación */
     transform: translateY(100px);
     opacity: 0;
-    transition: 0.5s;
+    transition: 0.5s ease-in-out;
 }
 
-.container .card:hover .content{
-    transform: translateY(0px);
+/* --- HOVER PARA PC Y TOUCH PARA IPHONE --- */
+.container .card:hover .content,
+.container .card:active .content,
+.container .card:focus .content {
+    transform: translateY(0);
     opacity: 1;
 }
 
-.container .card .content h2{
+.container .card .content h2 {
     position: absolute;
-    top: -60px;
-    right: 30px;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
     font-size: 8em;
-    color: rgba(255, 255, 255, 0.425);
+    color: rgba(255, 255, 255, 0.05);
     pointer-events: none;
+    z-index: -1;
 }
-.container .card .content h3{
+
+.container .card .content h3 {
+    width: 100%;
     font-size: 1.8em;
     color: #fff;
-    z-index: 1;
+    margin-bottom: 10px;
 }
-.container .card .content p{
-    font-size: 1em;
-    color: #fff;
-    font-weight: 300;
 
+.container .card .content p {
+    width: 100%;
+    font-size: 0.9em;
+    color: #fff;
+    margin-bottom: 15px;
+    max-height: 150px;
+    overflow-y: auto;
 }
 
 .container .card .content a {
-    position: relative;
-    display: inline-block;
-    padding: 8px 20px;
-    margin-top: 15px;
+    padding: 6px 14px;
     background: #fff;
     color: #000;
-    border-radius: 20px;
+    border-radius: 40px;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 11px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
-.bubbles
-{
-    position: relative;
-    display: flex;
-}
-.bubbles span
-{
-    position: relative;
-    width: 30px;
-    height: 30px;
-    background: #DB59E3;
-    margin: 0 10px;
-    border-radius: 50%;
-    box-shadow: 0 0 0 10px #8c3a91,
-                0 0 50px #DB59E3,
-                0 0 100px #DB59E3;
-    animation: animate 10s linear infinite;
-    animation-duration: calc(185s / var(--i));
-}
-.bubbles span:nth-child(even)
-{
-    background: #E37359;
-    box-shadow: 0 0 0 10px #E359A4,
-                0 0 50px #E37359,
-                0 0 100px #E37359;
-}
-@keyframes animate
-{
-    0%{
-        transform: translateY(100vh) scale(0);
+
+/* --- MEDIA QUERY ESPECÍFICA IPHONE (2 POR FILA) --- */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
     }
-    100%{
-        transform: translateY(-10vh) scale(1);
+
+    .container .card {
+        width: calc(50% - 15px); /* Dos por fila exactos */
+        height: 340px; 
+        margin: 7px;
     }
+
+    /* Reducimos la subida para que no choque en pantallas pequeñas */
+    .container .card .content {
+        transform: translateY(60px); 
+    }
+
+    .container .card .content h3 { font-size: 1.1em; }
+    .container .card .content p { font-size: 0.75em; line-height: 1.2; }
+    .container .card .content a { font-size: 9px; padding: 5px 10px; }
+    .container .card .content h2 { font-size: 5em; }
 }
 
-::-webkit-scrollbar {
-    display: none;
-}
-@media(max-width:720px){
-    .container .card{
-        position: relative;
-        width: 300px;
-        height: 400px;
-        margin: 30px;
-        box-shadow: inset 5px 5px 5px rgba(104, 169, 223, 0.418),
-                    inset -5px -5px 5px rgba(64, 184, 240, 0.5),
-                    5px 5px 5px rgba(233, 156, 248, 0.295),
-                    -5px -5px 5px rgba(222, 101, 252, 0.404);
-        border-radius: 15px;
-        background: rgba(34, 33, 33, 0.363);
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-top: 1px solid rgba(255, 255, 255, 0.5);
-        border-left: 1px solid rgba(255, 255, 255, 0.5);
-        backdrop-filter: blur(5px);
-    }
-    .container .card .content h2{
-        position: absolute;
-        top: -60px;
-        right: 30px;
-        font-size: 6em;
-        color: rgba(255, 255, 255, 0.425);
-        pointer-events: none;
-    }
-    .container .card .content h3{
-        font-size: 1.4em;
-        color: #fff;
-        z-index: 1;
-    }
-    .container .card .content p{
-        font-size: 0.6em;
-        color: #fff;
-        font-weight: 300;
-    
-    }
-    
-    .container .card .content a {
-        font-size: 13px;
-    }
-}
+/* Colores */
+.verano, .Mirada { background: linear-gradient(to right, #89F5AA, #8A91F6) !important; }
+.amor, .Elena { background: linear-gradient(to right, #F5A3A8, #F55E6D) !important; }
+.Nostalgia, .Tiempo { background: linear-gradient(140deg, #84F54E, #F5E597) !important; }
+
+::-webkit-scrollbar { display: none; }

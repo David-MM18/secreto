@@ -12,13 +12,12 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    /* Ajuste para el área segura de iPhone */
     min-height: -webkit-fill-available;
     background: linear-gradient(75deg, #595EE3, #E3599E);
     overflow-x: hidden;
 }
 
-/* Adornos de fondo con posición fixed para evitar saltos al scrollear en móvil */
+/* Fondos fijos para iPhone */
 body::before, body::after {
     content: '';
     position: fixed;
@@ -40,7 +39,7 @@ body::after {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 1200px; /* Aumentado para permitir las filas */
+    max-width: 1200px;
     flex-wrap: wrap;
     z-index: 1;
     padding: 20px;
@@ -49,49 +48,44 @@ body::after {
 .container .card {
     position: relative;
     width: 300px;
-    height: 450px; /* Altura fija razonable */
+    height: 450px; /* Altura fija controlada */
     margin: 20px;
-    box-shadow: inset 5px 5px 5px rgba(104, 169, 223, 0.4),
-                inset -5px -5px 5px rgba(64, 184, 240, 0.5),
-                5px 5px 5px rgba(233, 156, 248, 0.3),
-                -5px -5px 5px rgba(222, 101, 252, 0.4);
+    box-shadow: inset 5px 5px 5px rgba(255, 255, 255, 0.1),
+                5px 15px 35px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     background: rgba(34, 33, 33, 0.3);
-    overflow: hidden; /* Importante para el scroll interno */
+    overflow: hidden; 
     display: flex;
     justify-content: center;
     align-items: center;
     border-top: 1px solid rgba(255, 255, 255, 0.5);
     border-left: 1px solid rgba(255, 255, 255, 0.5);
-    /* Soporte Apple Safari */
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
 }
 
-/* Contenedor de contenido con scroll para textos largos */
+/* CONTENIDO: Siempre visible y con scroll */
 .container .card .content {
-    padding: 20px;
+    padding: 25px;
     text-align: center;
-    transition: 0.5s;
-    max-height: 100%;
-    overflow-y: auto; /* Permite leer todo el texto largo */
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     
-    /* Animación */
-    transform: translateY(100px);
-    opacity: 0;
+    /* Configuración de Scroll para texto largo */
+    overflow-y: auto; 
+    -webkit-overflow-scrolling: touch; /* Scroll suave en iPhone */
+    
+    /* Sin transformaciones ni opacidad 0 */
+    transform: translateY(0);
+    opacity: 1;
 }
 
-/* Webkit scrollbar invisible para el contenido interno */
+/* Ocultar barra de scroll pero mantener funcionalidad */
 .container .card .content::-webkit-scrollbar {
     display: none;
-}
-
-.container .card:hover .content {
-    transform: translateY(0px);
-    opacity: 1;
 }
 
 .container .card .content h2 {
@@ -99,7 +93,7 @@ body::after {
     top: -10px;
     right: 10px;
     font-size: 6em;
-    color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.05);
     pointer-events: none;
     z-index: -1;
 }
@@ -107,54 +101,47 @@ body::after {
 .container .card .content h3 {
     font-size: 1.8em;
     color: #fff;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    flex-shrink: 0; /* Evita que el título se encoja */
 }
 
 .container .card .content p {
-    font-size: 0.9em;
+    font-size: 0.95em;
     color: #fff;
     font-weight: 300;
-    line-height: 1.6em;
-    margin-bottom: 15px;
+    line-height: 1.7em;
+    text-align: justify; /* Mejor legibilidad para textos largos */
+    margin-bottom: 20px;
 }
 
+/* Botón simple sin gradientes */
 .container .card .content a {
     position: relative;
     display: inline-block;
-    padding: 8px 18px;
+    padding: 10px 25px;
     background: #fff;
     color: #000;
-    border-radius: 20px;
+    border-radius: 40px;
     text-decoration: none;
-    font-weight: 500;
-    font-size: 13px;
+    font-weight: 600;
+    font-size: 14px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    flex-shrink: 0; /* Evita que el botón se deforme */
+    flex-shrink: 0;
+    margin-bottom: 10px;
 }
 
-/* --- MEDIA QUERY PARA MÓVIL (2 POR FILA) --- */
+/* --- MÓVIL (2 POR FILA) --- */
 @media (max-width: 720px) {
     .container {
         padding: 10px;
-        gap: 0;
     }
 
     .container .card {
-        /* Cálculo para 2 columnas exactas */
+        /* Dos por fila */
         width: calc(80% - 20px); 
-        height: 480px; /* Altura ajustada para móviles */
+        height: 480px; 
         margin: 10px;
-    }
-
-    /* En iPhone, el hover no es ideal. Hacemos el contenido visible o más fácil de activar */
-    .container .card .content {
-        padding: 15px;
-        transform: translateY(0px); /* Siempre visible en móvil */
-        opacity: 1;
-    }
-
-    .container .card .content h2 {
-        font-size: 4em;
+        margin-top: -50px;
     }
 
     .container .card .content h3 {
@@ -162,18 +149,6 @@ body::after {
     }
     
     .container .card .content p {
-        font-size: 0.75em;
+        font-size: 0.8em;
     }
 }
-
-/* --- ESTILOS DE BOTONES (Clases independientes para mejor orden) --- */
-.verano { background: linear-gradient(100deg, #89F5AA, #8A91F6) !important; }
-.amor { background: linear-gradient(100deg, #e2d2d4, #F55E6D) !important; }
-.Frio { background: linear-gradient(100deg, #272842, #30a7c2) !important; color: #fff !important; }
-.Romand { background: linear-gradient(140deg, #F54952, #280659) !important; color: #fff !important; }
-.Nostalgia { background: linear-gradient(140deg, #84F54E, #F5E597) !important; }
-.Distancia { background: linear-gradient(140deg, #F47F6B, #FFB32B) !important; }
-
-/* Animación de burbujas */
-.bubbles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
-/* ... (tu código de burbujas se mantiene igual) */
