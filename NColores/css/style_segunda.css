@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    background: linear-gradient(75deg, #595EE3, #E3599E);
+    overflow-x: hidden;
+}
+
+/* Fondos fijos para iPhone */
+body::before, body::after {
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+body::before {
+    background: linear-gradient(#f00, #f0f);
+    clip-path: circle(18% at right 70%);
+}
+body::after {
+    background: linear-gradient(#3814E3, #FFFFFF);
+    clip-path: circle(10% at 10% 30%);
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    z-index: 1;
+    padding: 20px;
+}
+
+.container .card {
+    position: relative;
+    width: 300px;
+    height: 450px; /* Altura fija controlada */
+    margin: 20px;
+    box-shadow: inset 5px 5px 5px rgba(255, 255, 255, 0.1),
+                5px 15px 35px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    background: rgba(34, 33, 33, 0.3);
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+/* CONTENIDO: Siempre visible y con scroll */
+.container .card .content {
+    padding: 25px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* Configuración de Scroll para texto largo */
+    overflow-y: auto; 
+    -webkit-overflow-scrolling: touch; /* Scroll suave en iPhone */
+    
+    /* Sin transformaciones ni opacidad 0 */
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Ocultar barra de scroll pero mantener funcionalidad */
+.container .card .content::-webkit-scrollbar {
+    display: none;
+}
+
+.container .card .content h2 {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    font-size: 6em;
+    color: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container .card .content h3 {
+    font-size: 1.8em;
+    color: #fff;
+    margin-bottom: 15px;
+    flex-shrink: 0; /* Evita que el título se encoja */
+}
+
+.container .card .content p {
+    font-size: 0.95em;
+    color: #fff;
+    font-weight: 300;
+    line-height: 1.7em;
+    text-align: justify; /* Mejor legibilidad para textos largos */
+    margin-bottom: 20px;
+}
+
+/* Botón simple sin gradientes */
+.container .card .content a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 25px;
+    background: #fff;
+    color: #000;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+    margin-bottom: 10px;
+}
+
+/* --- MÓVIL (2 POR FILA) --- */
+@media (max-width: 720px) {
+    .container {
+        padding: 10px;
+    }
+
+    .container .card {
+        /* Dos por fila */
+        width: calc(80% - 20px); 
+        height: 480px; 
+        margin: 10px;
+        margin-top: -50px;
+    }
+
+    .container .card .content h3 {
+        font-size: 1.2em;
+    }
+    
+    .container .card .content p {
+        font-size: 0.8em;
+    }
+}
