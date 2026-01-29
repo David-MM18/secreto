@@ -1,0 +1,81 @@
+/* Importamos la fuente Poppins desde Google Fonts */
+       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&display=swap');
+
+        :root {
+            --bg-color: #000000;
+            --text-color: #ffffff;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            /* Suavizado de fuente para mejorar la redondez */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .scene {
+            position: relative;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .animated-text {
+            font-family: 'Poppins', sans-serif;
+            /* Tamaño fluido usando clamp para mejor respuesta */
+            font-size: clamp(3rem, 12vw, 10rem);
+            font-weight: 600;
+            /* Espaciado positivo para que la redondez de cada letra respire */
+            letter-spacing: 0.02em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.05em;
+            margin: 0;
+            width: 100%;
+        }
+
+        .char {
+            display: inline-block;
+            position: relative;
+            color: var(--text-color);
+            opacity: 0;
+            
+            /* Animación suave de entrada */
+            animation: poppinsEntry 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .columnaCss {
+            flex-direction: column;
+        }
+
+        @keyframes poppinsEntry {
+            0% {
+                opacity: 0;
+                transform: translateY(80px) scale(0.8);
+                filter: blur(12px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(var(--y-offset)) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        /* Media Query para dispositivos móviles */
+        @media (max-width: 768px) {
+            .animated-text {
+                font-size: clamp(2.5rem, 18vw, 6rem);
+                gap: 0.02em;
+            }
+        }

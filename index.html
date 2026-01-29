@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styleAnimaciones.css">
     <link rel="shortcut icon" href="epsilon.png" />
     <title>E L E N A</title>
 </head>
+
 <body>
-    <div class="container">
+
+    <div class="container columnaCss">
+        <div class="scene">
+            <!-- El texto ahora tiene el formato Mixto -->
+            <h1 class="animated-text" id="target">Elena</h1>
+        </div>
         <div class="card">
             <div class="content">
-                <h2>P</h2>
-                <br><br>
-                <h3>Web-Poems</h3>
+                <h2>E</h2>
+                <h3>Elen</h3>
                 <p>Bienvenida a tu pagina eterna mi amor, Te amo<br><br>
                 </p>
                 <a href="inic2.html">Poemas</a>
@@ -23,7 +30,39 @@
                 <a href="Flores_NilverTI/index.html">Regalo</a>
             </div>
         </div>
-        
+
     </div>
+
+    <script>
+        window.onload = () => {
+            const container = document.getElementById('target');
+            const text = container.innerText;
+            container.innerHTML = '';
+
+            const chars = text.split('');
+            const total = chars.length;
+            const mid = (total - 1) / 2;
+            const curveAmount = 25;
+
+            chars.forEach((letter, index) => {
+                const span = document.createElement('span');
+                // Preservamos el carácter original (mayúscula o minúscula)
+                span.textContent = letter;
+                span.className = 'char';
+
+                // Cálculo de la posición curva
+                const distance = index - mid;
+                const yOffset = (distance * distance) * (curveAmount / (mid * mid));
+
+                span.style.setProperty('--y-offset', `${yOffset}px`);
+
+                // Delay secuencial
+                span.style.animationDelay = `${index * 0.1}s`;
+
+                container.appendChild(span);
+            });
+        };
+    </script>
 </body>
+
 </html>

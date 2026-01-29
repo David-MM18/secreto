@@ -1,52 +1,115 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style2.css">
-    <link rel="shortcut icon" href="epsilon.png" />
-    <title>C O P I T O</title>
+    <title>Poppins Cinema Animado Mixto</title>
+    <style>
+        /* Importamos la fuente Poppins desde Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
+
+        :root {
+            --bg-color: #000000;
+            --text-color: #ffffff;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .scene {
+            position: relative;
+            text-align: center;
+        }
+
+        .animated-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14vw;
+            font-weight: 900;
+            /* Eliminamos text-transform: uppercase para permitir minúsculas */
+            letter-spacing: -0.02em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.05em; /* Un poco más cerrado para minúsculas */
+            margin: 0;
+        }
+
+        .char {
+            display: inline-block;
+            position: relative;
+            color: var(--text-color);
+            opacity: 0;
+            
+            /* Animación suave de entrada */
+            animation: poppinsEntry 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes poppinsEntry {
+            0% {
+                opacity: 0;
+                transform: translateY(80px) scale(0.8);
+                filter: blur(12px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(var(--y-offset)) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .animated-text {
+                font-size: 20vw; /* Ajuste de tamaño para móviles */
+            }
+        }
+    </style>
 </head>
 <body>
-    
-    <div class="container">
-        <div class="bubbles">
-            <span style="--i:11;"></span>
-            <span style="--i:12;"></span>
-            <span style="--i:24;"></span>
-            <span style="--i:10;"></span>
-            <span style="--i:14;"></span>
-            <span style="--i:23;"></span>
-            <span style="--i:18;"></span>
-            <span style="--i:16;"></span>
-            <span style="--i:19;"></span>
-            <span style="--i:20;"></span>
-            <span style="--i:22;"></span>
-            <span style="--i:25;"></span>
-            <span style="--i:18;"></span>
-            <span style="--i:21;"></span>
-            <span style="--i:15;"></span>
-            <span style="--i:13;"></span>
-            <span style="--i:26;"></span>
-            <span style="--i:17;"></span>
-            <span style="--i:13;"></span>
-            <span style="--i:28;"></span>
-        </div>
-        <div class="card">
-            <div class="content">
-                <h2>C</h2> 
-                <h3>Inicio</h3>
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-        </div>
+
+    <div class="scene">
+        <!-- El texto ahora tiene el formato Mixto -->
+        <h1 class="animated-text" id="target">Cinema</h1>
     </div>
-    <script type="text/javascript" src="js/vanilla-tilt.js"></script>
+
     <script>
-        VanillaTilt.init(document.querySelectorAll(".card"),{
-            max: 25,
-            speed: 400
-        });
+        window.onload = () => {
+            const container = document.getElementById('target');
+            const text = container.innerText;
+            container.innerHTML = ''; 
+
+            const chars = text.split('');
+            const total = chars.length;
+            const mid = (total - 1) / 2;
+            const curveAmount = 45; 
+
+            chars.forEach((letter, index) => {
+                const span = document.createElement('span');
+                // Preservamos el carácter original (mayúscula o minúscula)
+                span.textContent = letter;
+                span.className = 'char';
+                
+                // Cálculo de la posición curva
+                const distance = index - mid;
+                const yOffset = (distance * distance) * (curveAmount / (mid * mid));
+                
+                span.style.setProperty('--y-offset', `${yOffset}px`);
+                
+                // Delay secuencial
+                span.style.animationDelay = `${index * 0.1}s`;
+                
+                container.appendChild(span);
+            });
+        };
     </script>
-    
-    
 </body>
 </html>
