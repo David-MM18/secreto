@@ -57,6 +57,7 @@
 
         .columnaCss {
             flex-direction: column;
+            align-items: center;
         }
 
         @keyframes poppinsEntry {
